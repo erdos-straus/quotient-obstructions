@@ -65,9 +65,9 @@ The precise hypotheses, proofs, and scope of each minimum appear in the manuscri
 |---|---|
 | [Research note](./assignment13_research_note.pdf) | Five-page manuscript with definitions, theorems, proofs, and references |
 | [Verification appendix](./assignment13_verification_appendix.pdf) | Four-page companion documenting finite search domains, quotient certificates, and numerical checks |
-| [Verification script](./verify.py) | Reproducible exact-arithmetic verification |
-| [Printed certificate](./printed_certificate.py) | Checks the finite certificate included in the manuscript |
-| [Certificate outputs](./certificates/) | Deterministic verification results |
+| [Verification script] | Reproducible exact-arithmetic verification |
+| [Printed certificate] | Checks the finite certificate included in the manuscript |
+| [Certificate outputs]| Deterministic verification results |
 
 *Links should be updated to match the actual repository paths. Include only files that have been committed.*
 
