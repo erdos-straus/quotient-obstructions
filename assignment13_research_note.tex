@@ -1,0 +1,215 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\D}{\mathcal D}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\I}{\mathrm I}
+\newcommand{\II}{\mathrm {II}}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{12pt}
+\title{Quotient-Group Obstructions for Pure Type II\newline Divisor Constructions in the Erd\H{o}s--Straus Equation}
+\author{}
+\date{2 November 2026\quad\small Preliminary research note}
+\begin{document}
+\maketitle
+\vspace{-1.4em}
+\begin{abstract}
+We consider the classical divisor-square criteria for the Erd\H{o}s--Straus equation with residual modulus $a=4x-p\equiv3\pmod4$. For denominators $x=q_1^m q_2^r q_3^s$, with fixed distinct primes and fixed positive $r,s$, we require a Type II square-divisor witness, no ordinary-divisor witness of either type, and no Type I square-divisor witness. We give a finite quotient criterion for these conditions to hold for all sufficiently large $m$. The quotient by $\langle q_1\rangle$ must have order at least eight. When $q_1=2$ and the quotient has order eight, we obtain an exact group and exponent classification. The minimum residual moduli are $11$, $31$, $127$, and $195$ in four explicitly specified classes; the last two lower bounds use exhaustive finite certificates. These statements concern modular families, not infinitely many prime inputs. Novelty remains unconfirmed.
+\end{abstract}
+
+\section{Setting and classical divisor criteria}
+For a prime $p$, a solution of
+\begin{equation}\label{es}
+\frac4p=\frac1x+\frac1y+\frac1z
+\end{equation}
+is of Type I if exactly one denominator is divisible by $p$, and of Type II if exactly two are. We select $x$ coprime to $p$ and may interchange $y,z$. Classical parametrizations are collected by Elsholtz--Tao~\cite[\S2]{ET}; Bradford~\cite[Propositions 1--4]{Bradford} gives equivalent divisor-square conditions. We use these established conditions, not a new parametrization. Throughout, $a\ge3$, $a\equiv3\pmod4$, $\gcd(a,x)=1$, and $2x\ge a+1$. Thus $p=4x-a>0$ and, if $p$ is prime, the selected denominator lies in the canonical range $x\le(p-1)/2$.
+
+Write $\D(n)$ for the positive divisors of $n$. Residues and inverses below are modulo $a$.
+\begin{lemma}[Divisor criteria]\label{divisor}
+Suppose in addition that $p=4x-a$ is prime. A Type I completion of the selected $x$ exists if and only if some $e\mid x^2$ satisfies $4e\equiv-1$. A Type II completion exists if and only if some $e\mid x^2$ satisfies $e\equiv-x$. For $d=x^2/e$, the respective denominators are
+\begin{align}
+\I:\quad& y=(px+d)/a,\qquad z=p(x+pe)/a,\label{typeI}\\
+\II:\quad& y=p(x+d)/a,\qquad z=p(x+e)/a.\label{typeII}
+\end{align}
+\end{lemma}
+\begin{proof}
+Equation~\eqref{es} is equivalent to $(ay-px)(az-px)=p^2x^2$ with positive factors. Since $p\nmid ax$, their $p$-adic valuations are, up to interchange, $(0,2)$ or $(1,1)$. Write the factors as $(d,p^2e)$ or $(pd,pe)$, with $de=x^2$. Using $p\equiv4x$ and the invertibility of $x,p$ modulo $a$ gives precisely the stated congruences. They make both displayed denominators positive integers; reduction modulo $p$ verifies the stated types. Conversely these formulas give~\eqref{es}.
+\end{proof}
+
+\begin{definition}\label{def}
+Under the standing assumptions on $a,x$, call $x$ a \emph{pure Type II quadratic-divisor construction} if
+\begin{enumerate}[label=(\roman*)]
+\item no $e\in\D(x^2)$ satisfies $4e\equiv-1$;
+\item no $f\in\D(x)$ satisfies $f\equiv-x$;
+\item some $e\in\D(x^2)$ satisfies $e\equiv-x$.
+\end{enumerate}
+\end{definition}
+Condition (i) also excludes ordinary Type I witnesses, and (ii) makes the witness in (iii) strictly quadratic. This is a modular definition even when $p$ is composite. Only for prime $p$ do we invoke Lemma~\ref{divisor}'s Type I/II classification. Purity is relative to the selected $x$, not to all solutions for $p$. Notice that
+\begin{equation}\label{ordinary}
+\exists f\mid x:\ f\equiv-x
+\quad\Longleftrightarrow\quad
+\exists g\mid x:\ g\equiv-1,
+\end{equation}
+by the bijection $g=x/f$. Complementation $e\mapsto x^2/e$ preserves the Type II congruence.
+
+\section{The quotient criterion and sharp obstruction}
+Fix distinct primes $q_1,q_2,q_3$ coprime to $a$ and positive integers $r,s$. For $m\in\Z_{\ge1}$ put
+\[
+x_m=q_1^m q_2^r q_3^s,\quad L=\ord_a(q_1),\quad
+G=(\Z/a\Z)^\times,\quad H=\langle q_1\rangle,\quad Q=G/H.
+\]
+In $Q$ write $A=q_2H$, $B=q_3H$, $N=-H$, $T=(-4^{-1})H$, and let $1$ denote its identity. For nonnegative $R,S$ define
+\[
+P_{R,S}=\{A^iB^j:0\le i\le R,\ 0\le j\le S\}.
+\]
+An \emph{eventual pure family} means that Definition~\ref{def} holds for every integer $m$ beyond some bound, including the canonical inequality.
+
+\begin{proposition}[Finite quotient criterion]\label{criterion}
+There are infinitely many pure values of $m$ if and only if there is an eventual pure family. Both are equivalent to
+\begin{equation}\label{conditions}
+T\notin P_{2r,2s},\qquad N\notin P_{r,s},\qquad
+A^u=NB^v\text{ for some }1\le u\le r,\ 1\le v\le s.
+\end{equation}
+For any such pair choose an integer $\delta$ with
+$q_1^\delta q_2^u\equiv-q_3^v\pmod a$.
+Then every $m\ge\max(1,|\delta|)$ satisfying $2x_m\ge a+1$ is pure, with witnesses
+\begin{equation}\label{lift}
+e_m=q_1^{m+\delta}q_2^{r+u}q_3^{s-v},\qquad
+d_m=q_1^{m-\delta}q_2^{r-u}q_3^{s+v}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For $m\ge L-1$, the ordinary powers of $q_1$ cover $H$. Hence purity gives the first two exclusions in~\eqref{conditions}, using~\eqref{ordinary}. Dividing a Type II witness by $x_m$ and projecting gives $A^iB^j=N$, where $|i|\le r$, $|j|\le s$. If $i,j$ have the same weak sign, this equality or its inverse contradicts $N\notin P_{r,s}$. Neither is zero. Inverting if necessary yields $i=u>0$, $j=-v<0$. Infinitely many $m$ include a value $m\ge L-1$, so this proves necessity in that case as well.
+
+Conversely, the quotient relation lifts to the indicated $\delta$. The divisors in~\eqref{lift} are complementary, satisfy $e_m/x_m\equiv d_m/x_m\equiv-1$, and neither divides $x_m$. The two quotient exclusions rule out the forbidden divisors for every $m$, including values before saturation. The canonical inequality holds eventually, proving sufficiency.
+\end{proof}
+
+\begin{theorem}[Index obstruction and the base-2 equality case]\label{index}
+Every eventual pure family above satisfies $|Q|\ge8$. Suppose $q_1=2$ and $|Q|=8$. Then an eventual pure family exists exactly when
+\begin{equation}\label{equality}
+r=s=1,\qquad \ord_Q(A)=4,\qquad
+Q=\langle A\rangle\times\langle N\rangle,\qquad B=NA.
+\end{equation}
+In particular $Q\cong C_4\times C_2$, and $N$ is an involution outside the square subgroup $Q^2$. The bound eight is attained by the modulus-$195$ construction below.
+\end{theorem}
+\begin{proof}
+Choose $u,v$ from~\eqref{conditions} and set $C=A^u$, so $B^v=NC$. The ordinary subrectangle contains $1,C,NC,NC^2$. Avoidance of $N$ implies
+\[
+N\ne1,\qquad C\notin\{1,N\},\qquad C^2\ne1.
+\]
+The doubled subrectangle contains
+\begin{equation}\label{footprint}
+S(C)=\{1,C,C^2,C^3,C^4,NC,NC^2,NC^3\}.
+\end{equation}
+Since $N$ is a nonidentity involution, $|Q|$ is even. Order two permits no such $C$. At order four the elementary abelian group has no such $C$, while in the cyclic group $S(C)=Q$. At order six the group is cyclic, $C$ has order three or six, and again $S(C)=Q$. Each latter case contradicts $T\notin P_{2r,2s}$. This proves the lower bound without an assumption that $G$ is cyclic.
+
+Now $q_1=2$ implies $T=N$. Thus $N\notin S(C)$ forces $C,C^2,C^3\ne1$ and $C^j\ne N$ for $1\le j\le4$. If $N\in\langle C\rangle$, its unique involution is $C^{\ord(C)/2}$, and $\ord(C)\le8$ is impossible. Otherwise $2\ord(C)\le8$ and $\ord(C)\ge4$, so $\ord(C)=4$ and $Q=\langle C\rangle\times\langle N\rangle$.
+
+The original cosets $A,B$ also have order four, since their powers $A^u,B^v$ do and $Q$ has exponent four. Thus $u,v$ are odd and $B=NA$ or $NA^{-1}$. The latter gives $AB=N$ in the ordinary rectangle and is excluded. If $r\ge2$, then $A^3B=N$ lies in the doubled rectangle; if $s\ge2$, then $AB^3=N$ does. Therefore $r=s=1$. Conversely, under~\eqref{equality}, the doubled rectangle is $S(A)=Q\setminus\{N\}$ and $A=NB$. All conditions of Proposition~\ref{criterion} hold. Finally, in this direct product the unique nontrivial square is $A^2$, distinct from $N$.
+\end{proof}
+
+\section{Four minimum-modulus statements}
+\begin{theorem}[Minimum moduli]\label{minima}
+Among all $a\ge3$ with $a\equiv3\pmod4$ supporting an eventual pure family $q_1^m q_2^r q_3^s$ with distinct prime bases coprime to $a$ and $r,s\ge1$, the following are the minimum values of $a$:
+\begin{center}
+\begin{tabular}{@{}lc@{}}\toprule
+Restriction on the family & Minimum $a$\\\midrule
+None & 11\\
+$H=\langle q_1\rangle\ne\{1\}$ & 31\\
+$q_1=2$ & 127\\
+$q_1=2$ and $a$ composite & 195\\\bottomrule
+\end{tabular}
+\end{center}
+These are global minima in the stated modular classes. No minimum prime input or prime product is asserted. The exclusions for the last two rows use the exhaustive finite certificate described below.
+\end{theorem}
+\begin{proof}
+For $a<11$ only $a=3,7$ are eligible, with $|G|=2,6$, so Theorem~\ref{index} excludes them. For nontrivial $H$ below $31$, the complete list is $3,7,11,15,19,23,27$. At $3,7,11,15$ one has $|G/H|<8$. At $19,23,27$, $G$ is cyclic. An even-order $H$ contains $-1$, contrary to $N\ne1$. A nontrivial odd-order $H$ has order at least three, giving $|G/H|\le6$ at $19,27$; at $23$ its order is $11$, giving index two.
+
+For base two, evaluate $\varphi(a)/\ord_a(2)$ for each $a=4c-1$ with $1\le c\le31$. Every value is at most six. The same is true for each composite $a=4c-1$ with $1\le c\le48$: there are exactly $25$ such moduli. These are complete modulus domains, independent of the other primes and of $r,s$. The integer certificate below verifies both assertions; Theorem~\ref{index} then excludes every family at each smaller modulus. The witnesses in Table~\ref{witnesses} attain all four bounds, by Proposition~\ref{criterion} and the explicit quotient certificates following it.
+\end{proof}
+
+\noindent\textbf{Finite certificate.}
+Here is the full arithmetic needed for the two bounded exclusions (Python 3, integer operations only). The separate verification appendix records every row, independently checks group generation, and verifies all example data.
+\begin{samepage}
+\begin{quote}\small\ttfamily
+from math import gcd, isqrt\\
+def prime(n):\\
+\hspace*{1em}return n >= 2 and all(n \% d for d in range(2,isqrt(n)+1))\\
+def index(a):\\
+\hspace*{1em}h, t = \{1\}, 2 \% a\\
+\hspace*{1em}while t != 1: h.add(t); t = 2*t \% a\\
+\hspace*{1em}return sum(gcd(t,a)==1 for t in range(1,a)) // len(h)\\
+small = list(range(3,127,4))\\
+comp = [a for a in range(3,195,4) if not prime(a)]\\
+assert len(small)==31 and len(comp)==25\\
+assert all(index(a)<=6 for a in small+comp)
+\end{quote}
+\end{samepage}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}rrrrrrrrrr@{}}\toprule
+$a$&$q_1$&$q_2$&$q_3$&$(r,s)$&$|H|$&$|Q|$&$(u,v)$&$\delta$&$m_0$\\\midrule
+11&23&7&37&$(1,1)$&1&10&$(1,1)$&0&1\\
+31&5&7&11&$(1,1)$&3&10&$(1,1)$&$-1$&1\\
+127&2&3&11&$(1,2)$&7&18&$(1,2)$&1&1\\
+195&2&11&19&$(1,1)$&12&8&$(1,1)$&4&4\\\bottomrule
+\end{tabular}
+\caption{Existing constructions attaining the modulus bounds. Every $m\ge m_0$ is modularly admissible; primality is a separate condition.}\label{witnesses}
+\end{table}
+
+\noindent\textbf{Quotient certificates.}
+At $11$, $H=\{1\}$, $T=8$, $N=10$. The ordinary residual set is $\{1,4,6,7\}$, and the doubled residual set is $\{1,2,3,4,5,6,7,9\}$. The lift is $7+37=44$.
+At $31$, $H=\{1,5,25\}$, $T=\{17,22,23\}$, $N=\{6,26,30\}$. The ordinary residual residues are $\{1,7,11,15\}$ and the doubled residual residues are $\{1,7,8,10,11,12,15,18,28\}$; these respectively miss $N$ and $T$. The lift follows from $7+5\cdot11=62$.
+
+At $127$, $H=\{1,2,4,8,16,32,64\}$. The quotient is cyclic of order $18$, generated by $3H$. In additive labels, $A=1$, $B=14$, and $N=T=9$. The doubled rectangle $\{i+14j\bmod18:0\le i\le2,0\le j\le4\}$ omits $9$, and the ordinary rectangle is a subset. The lift is $2\cdot3+11^2=127$.
+At $195$, CRT coordinates modulo $3,5,13$ use the generators $2$ of orders $2,4,12$. If $g$ has respective discrete logarithms $(\alpha,\beta,\gamma)$, the map
+\[
+g\longmapsto(\alpha-\gamma\bmod2,\ \beta-\gamma\bmod4)
+\]
+is surjective with kernel $H=\langle2\rangle$. Here $|H|=12$, $Q\cong C_2\times C_4$, $N=(1,0)$, $A=11H=(0,1)$ and $B=19H=(1,1)=NA$. Theorem~\ref{index} applies, and $16\cdot11+19=195$ gives the lift. These finite residue computations are reproduced in the appendix.
+
+\section{Two explicit infinite modular families}
+For $a=127$ put $x_m=363\cdot2^m$, $p_m=1452\cdot2^m-127$. For every $m\ge1$, the preceding certificate gives
+\[
+e_m=9\cdot2^{m+1},\quad d_m=14641\cdot2^{m-1},\qquad
+y_m=121\cdot2^{m-1}p_m,\quad z_m=3\cdot2^m p_m.
+\]
+For $a=195$ put $x_m=209\cdot2^m$, $p_m=836\cdot2^m-195$. For every $m\ge4$,
+\[
+e_m=121\cdot2^{m+4},\quad d_m=361\cdot2^{m-4},\qquad
+y_m=19\cdot2^{m-4}p_m,\quad z_m=11\cdot2^m p_m.
+\]
+These formulas follow from~\eqref{lift} and~\eqref{typeII}; for example $209\cdot16+361=19\cdot195$ and $209+121\cdot16=11\cdot195$. At $(a,m)=(127,1)$ and $(195,5)$ they give, respectively,
+\[
+(p;x,y,z)=(2777;726,336017,16662),\qquad
+(26557;6688,1009166,9348064).
+\]
+Both displayed $p$ are prime by trial division, and the integer identity $4xyz=p(xy+xz+yz)$ verifies each fraction equality. Finite checks of other exponents are illustrative; the quotient proofs establish the entire modular families.
+
+\section{Relation to prior work and scope}
+Bradford's Type I residue is $d\equiv-px\pmod{4x-p}$; substituting $e=x^2/d$ gives $4e\equiv-1$. His Type II criterion agrees directly, up to complementing to choose $d\le x$~\cite{Bradford}. Elsholtz--Tao's corrected arXiv version~\cite{ET} is used when referring to Proposition~1.9; its solvable-congruence classification allows finite collections of residue classes. Modular coverings~\cite[Proposition 3 and Corollary 1]{Salez} and broader Type II parametrizations~\cite[Theorem 1]{Chamberland} do not impose Definition~\ref{def}'s particular exclusions.
+
+Subgroup tests using all prime factors of a denominator, such as~\cite[Proposition 4.8]{Dahan}, lose bounded exponent information retained here. Signed exponent boxes and quotient methods also occur explicitly in public research notes~\cite{Bryan}; their use alone is not a novelty claim. The quotient criterion is an elementary consequence of the classical divisor criteria. The narrow questions for expert assessment are the sharp obstruction and the four constrained minima. Their novelty and significance remain unconfirmed.
+
+No claim is made about infinitely many prime $p_m$, absence of Type I solutions at other denominators, universal coverage of primes, prime-product minima, or four-dimensional classifications. The principal open editorial question is whether the sharp finite-group classification is already implicit in a published result in an equally direct form. No result here relies on withdrawn work.
+
+\begin{thebibliography}{9}\small
+\bibitem{ET} C. Elsholtz and T. Tao, \emph{Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions}, J. Aust. Math. Soc. \textbf{94} (2013), 50--105. \href{https://doi.org/10.1017/S1446788712000468}{doi:10.1017/S1446788712000468}. Corrected version: \href{https://arxiv.org/abs/1107.1010v6}{arXiv:1107.1010v6} (2015).
+\bibitem{Bradford} K. Bradford, \emph{Elementary Patterns from the Erd\H{o}s--Straus Conjecture}, Integers \textbf{25} (2025), A54. \href{https://math.colgate.edu/~integers/z54/z54.pdf}{Publisher PDF}, Propositions 1--4, pp.~2--3.
+\bibitem{Salez} S. E. Salez, \emph{The Erd\H{o}s--Straus conjecture: New modular equations and checking up to $N=10^{17}$}, \href{https://arxiv.org/abs/1406.6307v1}{arXiv:1406.6307v1} (2014), pp.~5--7.
+\bibitem{Chamberland} M. Chamberland, \emph{The Erd\H{o}s--Straus Conjecture and the Structure of Primes}, Integers \textbf{26} (2026), A42. \href{https://math.colgate.edu/~integers/aa42/aa42.pdf}{Publisher PDF}, Theorem 1, p.~2.
+\bibitem{Dahan} B. Dahan, \emph{Sieve dimension and search depth for the Erd\H{o}s--Straus conjecture, $n\equiv1\pmod{24}$}, \href{https://arxiv.org/abs/2608.24035v1}{arXiv:2608.24035v1} (2026), \S4.2.2, Proposition 4.8. Preprint.
+\bibitem{Bryan} C. Bryan / Free Computation Foundation, \emph{Exact two-target signed-box equivalence for prime Erd\H{o}s--Straus}, CENTL public research note, \href{https://github.com/nightwarelabz/centl/blob/99421c21ece090737f2028f3af8e5813ed7efa2c/research/erdos-straus/ES-TWO-TARGET-SIGNED-BOX-EQUIVALENCE.md}{commit 99421c21}, \S\S1,7--8. Accessed 2 November 2026; unrefereed.
+\end{thebibliography}
+\end{document}
